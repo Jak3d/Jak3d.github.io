@@ -1,6 +1,6 @@
 <template>
     
-<h2 class="subtitle is-3">Elementi di Probabilità e Statistica</h2>
+<h2 class="subtitle is-3">Elementi di PProbabilità e Statistica</h2>
 
 </template>
 <script>

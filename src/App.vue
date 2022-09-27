@@ -154,7 +154,7 @@ export default {
   },
   created() {
     
-    this.$router.push(`/${this.activePage}`) 
+    //this.$router.push(`/${this.activePage}`) 
   },
   methods: {
     setActivePage(Page) {

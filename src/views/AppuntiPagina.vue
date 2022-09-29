@@ -8,6 +8,9 @@
         <a href="#" class="card-footer-item" @click="setAppunti('SO')"
           >Sistemi Operativi</a
         >
+        <a href="#" class="card-footer-item" @click="setAppunti('SOLAB')"
+          >SO Lab.</a
+        >
         <a href="#" class="card-footer-item" @click="setAppunti('LFT')"
           >Linguaggi For. e Trad.</a
         >
@@ -44,6 +47,36 @@
       </aside>
     </div>
   </transition>
+  <transition name="slide-fade-left">
+    
+    
+    <div v-if="this.activeNotes==='SOLAB'" class="box has-background-grey-lighter" >
+    
+      <aside class="menu" >
+        <p class="menu-label">Sistemi Operativi Laboratorio</p>
+        <ul class="menu-list">
+          <li>
+            <a @click="jumpTo('1')" class="is-active">Introduzione</a>
+            <ul>
+              <li ><a @click="jumpTo('1-1')">Libri</a></li>
+              <li><a @click="jumpTo('1-2')">Cos'è un SO</a></li>
+              <li><a>Add a member</a></li>
+            </ul>
+          </li>
+          <li><a>Invitations</a></li>
+          <li><a>Cloud Storage Environment Settings</a></li>
+          <li><a>Authentication</a></li>
+        </ul>
+        <p class="menu-label">Transactions</p>
+        <ul class="menu-list">
+          <li><a>Payments</a></li>
+          <li><a>Transfers</a></li>
+          <li><a>Balance</a></li>
+        </ul>
+      </aside>
+    </div>
+  </transition>
+ 
   <transition name="slide-fade-left">
     
     
@@ -128,6 +161,11 @@
         <SistemiOperativi ref="refSO" />
       </body>
     </Transition>
+    <Transition name="slide-fade">
+      <body  v-if="this.activeNotes === 'SOLAB'" style="width: 75%; float: right; text-align: left;"  >
+        <SoLabPage ref="refSOLAB" />
+      </body>
+    </Transition>
   </div>
 </template>
 
@@ -135,6 +173,8 @@
 
 import SistemiOperativi from "../components/SistemiOperativi.vue";
 import ElemProbStat from '../components/ElementiDiPRobStat.vue';
+import SoLabPage from '../components/SoLab.vue';
+
 
 //import 'node_modules/mathjax/es5/tex-chtml.js';
 
@@ -143,7 +183,8 @@ export default {
   components: {
     ElemProbStat,
     SistemiOperativi,
-    
+    SoLabPage,
+   
 },
   data() {
     return {

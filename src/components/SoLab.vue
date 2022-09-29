@@ -17,7 +17,7 @@
             DA SISTEMARE AL MOMENTO E' ORRIBILE <br>
             While(expt){ <br> ..... <br> }
             do { <br> .... <br> } <br> while(exp);
-            for (expr;expr;expr){}
+            for (expr;expr;expr) {}
 
             Notare che un'espressione con valore 0 vale False, un'espressione con valore diverso da 0 vale True.
             While(1){} //causerà un ciclo infinito.

@@ -135,9 +135,9 @@
   <footer class="footer" :style="[this.activePage !== 'Home' ? 'bottom:3px ; clear: both;width 95%;' :'bottom:3px ; clear: both' ]">
     
     <div class="content has-text-centered">
-    <p>
+    
       <router-link to="/Appunti" @click="setActivePage(Appunti)"> Appunti Personali</router-link>
-    </p>
+    
   </div>
   </footer>
 </template>

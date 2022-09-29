@@ -4,7 +4,5 @@ module.exports = defineConfig({
   //? '/LeonardoMarro/'
   //: '/',
 
-  transpileDependencies: true,
-
-  outputDir: 'docs'
+  transpileDependencies: true
 })

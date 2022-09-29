@@ -1,6 +1,6 @@
 <template>
     <div class="content is-medium">
-        <h2 class="subtitle is-3"> Lez 3?!!!! </h2>
+        <h2 class="subtitle is-3"> Lez 3? </h2>
         <p>
             Usando il valore di ptr si può accedere al valore memorizzato nella variabile i, pur essendo questo
             passaggio

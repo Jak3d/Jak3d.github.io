@@ -6,5 +6,5 @@ module.exports = defineConfig({
 
   transpileDependencies: true,
 
-  outputDir: 'Docs/dist'
+  outputDir: 'docs'
 })

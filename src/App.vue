@@ -39,7 +39,7 @@
             : 'text-align: centre; width: 50%; float:right',
         ]"
       >
-        <h1 class="title">Ciao </h1>
+        <h1 class="title">Ciao !</h1>
        
         <h1>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam

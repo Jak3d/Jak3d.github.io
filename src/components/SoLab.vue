@@ -1,6 +1,6 @@
 <template>
     <div class="content is-medium">
-        <h2 class="subtitle is-3"> Lez 3? </h2>
+        <h2 class="subtitle is-3"> Lez gg 3? </h2>
         <p>
             Usando il valore di ptr si può accedere al valore memorizzato nella variabile i, pur essendo questo
             passaggio
@@ -17,7 +17,7 @@
             DA SISTEMARE AL MOMENTO E' ORRIBILE <br>
             While(expt){ <br> ..... <br> }
             do { <br> .... <br> } <br> while(exp);
-            for (expr;expr;expr){}
+            for (expr;expr;expr) {}
 
             Notare che un'espressione con valore 0 vale False, un'espressione con valore diverso da 0 vale True.
             While(1){} //causerà un ciclo infinito.

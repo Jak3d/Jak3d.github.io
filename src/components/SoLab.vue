@@ -215,6 +215,10 @@ printf("Il testo che ha inserito contiene %i caratteri \n",cnt)
       <strong> Ripassare sincronizzazione attraverso SO</strong>. LO Stream vuoto <strong> non è </strong> uno stream chiuso.
       Lo stream chiuso, invece, lo scanf restituisce <strong> EOF </strong>(End of File).
     </p>
+    <h3 class="subtitle is-4"> Accensione del Computer</h3>
+    <p>
+      
+    </p>
     
 
 

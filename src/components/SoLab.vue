@@ -216,11 +216,85 @@ printf("Il testo che ha inserito contiene %i caratteri \n",cnt)
       Lo stream chiuso, invece, lo scanf restituisce <strong> EOF </strong>(End of File).
     </p>
     <h3 class="subtitle is-4"> Accensione del Computer</h3>
+    <h3 class="subtitle is-2"> Lezione 4</h3>
+    <h3 class="subtitile is-4">Definizioni</h3>
+    <p> La direttiva #define definisce nomi simbolici per valori restuali utilizzabili dal programma.</p>
+    <pre><code class="language-c">
+      #define MAX_NO_STUDENTS 100;
+      for(i=0; i &lt; MAX_NO_STUDENTS){
+        ...
+      }
+    </code></pre>
+    <p>Se una costante simbolica è utilizzata in più mosuli sorgente C serve creare un nuovo file <strong>Intestazione</strong>. </p>
+    <pre><code class="language-c">
+      #define MAX_NO_STUDENTS 100
+      #define CLASSROOM_A_CAPACITY 40
+      #define OVERFLOW (MAX_NO_STUDENTS - CLASSROOM_A_CAPACITY)
+    </code></pre>
+    <p>
+      Il nome di un simbolo ha un numero limitato di caratteri.
+    </p>
+    <div>
+      <p>Nota: Un header personalizzato non si include con &lt; &gt;, ma indicandone il path relativo o assoluto con " ".</p>
+    </div>
+    <h3 class="subtitle is-4">Doppie incusioni</h3>
     <p>
       
+      Inlusioni di definizio, possono contenere ulteriori inclusioni dentro di loro, causando possibbili <strong>Doppie inclusioni</strong> 
+      nello stesso codice. <br>
+      <pre><code class="language-c"> 
+        #ifndef _MATH_MACRO_H 
+        // controlla se esiste già le definizione (if not def)
+          #define _MATH_MACRO_H
+          ...
+          ... 
+        #endif
+      </code></pre>
     </p>
-    
-
+    <h3 class="subtitle is-4">Global Variables (Static,External)</h3>
+    <p>Le variabili globali sono allocate in fase si compilazione e sono visibili anche da mosuli diversi da quello in cui è definita.
+      <br> Se uso <code class="language-c"> static int a;</code>, la variabile "a" sarà visibile solo in tutte le parti del programma. <br>
+      Se uso <code class="language-c">extern int b;</code>, la variabile "b" sarà visibile in qualsiasi modulo esterno, <strong> previa definizione</strong>.
+    </p>
+    <h4 class="subtitle is-4">sizeof()</h4>
+    <p>In alcune occasioni è necessario determinare la dimensione di un espressione o di un tipo in termini di Byte</p>
+    <pre><code class="language-c">
+      sizeof(int);
+      sizeof(char);
+      sizeof(*int);
+    </code></pre>
+    <h3>Le Strutture di dati</h3>
+    <p>Le strutture C sono:
+      <ul>
+        <li>-Gli Array (Sono allocati staticamente al momento di compilazione)(Diverso da JAVA!) <pre><code class="language-c">
+int a[10];
+char *msg = "OK you entered"; //Punta ad una seguenza di caratteri (al primo elem)
+char str[] = {'H','e','l','l','o', '\0'}; //ricordare lo "\0"
+char *weekdays[] = {"Mon","Tue","Wed","Thu","Fri"}; //Array di puntatori a "Stringhe" (sono sempre char)
+        </code></pre></li>
+        <li>-Lo Struct (Riempito con dei <strong> Campi </strong>) <pre><code class="language-c">
+//definizione di una struttura
+struct student{ 
+  int matr;
+  char *firstName;
+  char *lastName;
+  int voti[40];
+  struct address adr; //definito da qualche parte
+}
+//definizione di dati con struttura student
+struct student pippo,pluto,paperino;
+        </code></pre></li>
+      </ul>
+    </p>
+    <p>(C'era un bel disegno su array di stringhe (array di puntatori a stringhe): Ricopiare)</p>
+    <p>Metodo alternativo per definire un array: <br> <code class="language-c"> char *weekdays_b = "Mon\Tue\Wed\Thu\Fri\0"</code> </p>
+    <p>In C il nome di un array indica l'indirizzo del primo elemento</p>
+    <ul>
+      <li>a,*a, a[0] indicano il primo elemento</li>
+      <li>a[3],*(a+3)</li>
+      <li>&a[4],a+4</li>
+    </ul>
+    <p>Non si può modificare "a" in quanto il nome è una variabile di tipo <strong> Const</strong></p>
 
 
 
@@ -278,4 +352,5 @@ pre {
 p {
   width: 70%;
 }
+
 </style>

@@ -301,6 +301,144 @@ struct student pippo,pluto,paperino;
 <p>
   
 </p>
+<h3 class="subtitle is-3"> (Lez 6) </h3>
+<h3 class="subtitle is-4"> Accesso file attraverso stream stdio</h3>
+<p>
+  <code class="language-c"> FILE *f = fopen ("./DivinaCommedia.txt")</code> <br> La <strong>fopen</strong> restituisce un puntatore 
+  allo stream  di tipo *FILE. Esso deve essere usato per le seguenti operazioni:
+</p>
+  <pre><code class="language-c">
+    fread();
+    fwrite();
+    fgets();
+    fgetc();
+    fclose();
+    fseek();
+    fscanf();
+    fprintf();
+  </code></pre>
+
+
+<p>
+  Nel stdio.h sono definiti diversi stream:
+</p>
+  <pre><code class="language-c">
+  extern FILE *stdin; //standard input, descrittore 0, input file associato al terminale se non specificato altrimenti
+                      //per leggere file devo assegnargli fopen del file in questione
+  extern FILE *stdout; //standard output, descrittore 1
+  extern FILE *stderr; //standard error, descrittore 2
+  </code></pre>
+<p>
+  Questo comporta che i seguenti sono equivalenti:
+</p>
+<pre><code class="language-c">
+int c;
+c = fgetc(stdin); //legge dallo stream
+c = getchar();
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-c">
+  #include &lt;stdio.h&gt;
+  stdout = fopen("./La divina commedia.txt","a");
+
+  printf("Hello World");
+  frequencies &lt; filein &gt; fileout
+</code></pre>
+<h3 class="subtitle is-4"> Allocazione dinamica della memoria </h3>
+<p> Alcune funzioni della libreria stdlib sono per l'allocazione dinamica della memoria dati. <br> Esse sono 
+principalmente le seguenti:</p>
+<pre><code class="language-c">
+  void *malloc(size_t size);
+  void *calloc(size_t nmemb, size_t size);
+  void *realloc(void *ptr, size_t size);
+  void free(void *ptr);
+</code></pre>
+<p><strong>~malloc() </strong> (memory alloc) associa <strong>size</strong> bytes dallo heap e restituisce in caso di successo un puntatore alla memoria
+allocata. La memoria allocata <strong> non è inizializzata a 0</strong>.</p>
+<p> <strong>~calloc() </strong> alloca memoria per un array di nmemb elementi ciascun di dimensione bytes. In caso di successo restituisce  un 
+  puntatore alla memoria allocata. La memoria allocata <strong>è inizializzata a 0</strong>. Fa il controllo dell'overflow di 
+  nmemb*size.
+</p>
+<p>
+  <strong> ~realloc() </strong> modifica la dimensione di un blocco di memoria precedentemente allocato e puntato da ptr alla nuova dimensione
+  {size} bytes. ptr deve essere un puntatore precedentemente restituito da una chiamata a malloc() o calloc() o realloc().
+</p>
+<p>
+  <strong> ~free() </strong>de-alloca il blocco di memoria puntato da ptr e precedentemente allocato con malloc(),callor() o realloc(). 
+  In caso di errore o se nessuna allocazione è stata fatta le funzioni malloc(),calloc(),realloc() restituiscono <strong> NULL</strong>.
+</p>
+<p><strong>Allocazione dinamica di uno struct</strong></p>
+<pre><code class="language-c">
+struct student *donald = (struct student *) malloc(sizeof(struct student));
+if (donald != NULL){
+  donald -> id = 435;
+  donald -> first_name = "Donald";
+  donald -> last_name = "Duck";
+}
+free(donald);
+</code></pre>
+<h3 class="subtitle is-4">Implementazione lista in C</h3>
+<p>Le liste sono strutture dati di natura dinamica, hanno due operazioni che sono inserimento (push()) e prelievo (pop()).
+  Per creare una lista useremo gli Struct e l'allocazione dinamica.
+</p>
+<pre><code class="language-c">
+#include "client.h"
+
+//definizione di tipo 'l_node' usato per rappresentare i nodi
+
+typedef struct _node{
+  unsigned int id;
+  client person;
+  struct _node *next;
+} l_node;
+
+//definizione del tipo list_cl
+
+typedef struct{
+  l_node *head;
+  l_node *tail;
+} list_cl;
+
+#define L_EMPTYLIST_CL {NULL,NULL}
+</code></pre>
+<p>Definizione di una lista vuota:</p>
+<pre><code class="language-c">
+//Variabile utilizzabile soltanto durante la definizione
+list_cl class=L_EMPTYLIST_CL; 
+</code></pre>
+<pre><code class="language-c">
+(Inside cl_list.h)
+//Operazioni sulla lista
+list_cl l_add_cl(list_cl l, client p); //dichiarazione
+client l_rem_cl(list_cl l); //rimozione
+//oppure
+list_cl l_rem_cl(list_cl l, client *p);
+
+(Still inside client.h)
+
+//definizione del tipo 'client'
+typedef struct{
+  char cf[16]; //codice fiscale
+  char *first_name;
+  char *last_name;
+  address adr; //tipo definito altrove
+} client;
+</code></pre>
+<p>Eseguire esercizi A.9:</p>
+<button @click="openCard('Es_A9')" class="button is-warning">Show Es. A.9</button>
+<div :style="[Es_A9 === false ? 'display:none;' : '']">
+  <p>Implementare le seguenti funzioni sul dato list_cl:</p>
+  <ol>
+    <li>list_cl l_add_cl(list_cl l, client p): aggiunge il cliente p in coda alla
+lista l; restituisce la lista stessa, la lista vuota in caso di errore;</li>
+    <li>client l_rem_cl(list_cl l): restituisce il cliente in testa alla lista l, il cliente
+vuoto se la lista è vuota;</li>
+    <li>int l_is_empty(list_cl l) restituisce 1 se e solo se la lista l è vuota;</li>
+    <li>list_cl l_clear(list_cl l) rimuove tutti gli elementi dalla lista l
+rilasciando le risorse allocate per essi; restituisce la lista vuota;</li>
+    <li>int l_length(lists_cl l) restituisce il numero di elementi nella lista l.</li>
+  </ol>
+</div>
   </div>
 
 
@@ -308,12 +446,13 @@ struct student pippo,pluto,paperino;
 <script>
 import Prism from "prismjs";
 import "../../node_modules/prismjs/components/prism-c";
-import "prismjs/themes/prism-tomorrow.css"; // you can change
+import "prismjs/themes/prism-tomorrow.css"; 
 export default {
   name: "SoLabPage",
   data() {
     return {
       Es_1: false,
+      Es_A9:false,
     }
   },
 
@@ -324,6 +463,10 @@ export default {
         case 'Es_1':
           this.Es_1 = !this.Es_1;
           console.log(this.Es_1);
+          break;
+        case 'Es_A9':
+          this.Es_A9= !this.Es_A9;
+          console.log(this.Es_A9);
           break;
 
         default:

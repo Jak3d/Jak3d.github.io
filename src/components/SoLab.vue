@@ -297,7 +297,10 @@ struct student pippo,pluto,paperino;
     <p>Non si può modificare "a" in quanto il nome è una variabile di tipo <strong> Const</strong></p>
 
 
-
+<h3 class="subtitle is-3"> (Lez 4)</h3>
+<p>
+  
+</p>
   </div>
 
 

@@ -39,7 +39,7 @@
                 </tr>
                 <tr disabled>
                     <th>TBD</th>
-                    <td>Thesis project, hidden untill official release</td>
+                    <td>Thesis project, to be release once project has started</td>
                     <td>TBD</td>
                     <td><div class="tag is-warning is-medium">In Progress</div></td>
                     <td>Python</td>

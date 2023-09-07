@@ -2,7 +2,6 @@ import {createRouter, createWebHistory} from 'vue-router'
 import CV from '../views/CV'
 import ProjectPage from '../views/Projects'
 
-import AppuntiPage from '../views/AppuntiPagina'
 
 const routes = [
     {path:'/CV',
@@ -13,12 +12,6 @@ const routes = [
         path:'/Projects',
         name:'Projects',
         component: ProjectPage,
-    },
-    {
-        path:'/Appunti',
-        name:'AppuntiPagina',
-        component: AppuntiPage,
-        meta: { transition: 'slide-left' },
     }
 ]
 const router = createRouter({

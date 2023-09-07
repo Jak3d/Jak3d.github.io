@@ -12,11 +12,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 import { faDiagramProject } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faDiscord, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 library.add(faBook)
 library.add(faDiagramProject)
 library.add(faUser)
 library.add(faGithub)
+library.add(faLinkedin)
+library.add(faDiscord)
 
 
 

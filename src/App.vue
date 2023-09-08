@@ -35,7 +35,7 @@
               <article class="media">
                 <figure class="media-left">
                   <p class="image is-256x256">
-                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                    <img src="./FotoProfiloLeo.png" width="256" height="256"  >
                   </p>
                 </figure>
                 <div class="media-content">

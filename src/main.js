@@ -24,6 +24,10 @@ library.add(faDiscord)
 
 //createApp(App).use(router).use(VueMathjax).mount('#app')
 const app = createApp(App)
+//Begin global variables
+app.config.globalProperties.$correctSize = false
+//End global variables
+
 app.use(VueMathjax)
 app.use(router)
 app.component('font-awesome-icon', FontAwesomeIcon)

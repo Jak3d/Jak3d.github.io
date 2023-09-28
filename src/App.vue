@@ -90,9 +90,9 @@ export default {
           transitionName.value = 'slide-fade2';
         } else if (from === '/Profile/CV' && to === '/CV') {
           transitionName.value = 'slide-fade';
-        } else if (from === '/Projects' && to === '/Profile/CV') {
+        } else if (from === '/Projects' && to === '/CV') {
           transitionName.value = 'slide-fade';
-        } else if (from === '/CV' && to === '/Profile/Projects') {
+        } else if (from === '/CV' && to === '/Projects') {
           transitionName.value = 'slide-fade2';
         } else if (from === '/Profile/Projects' && to === '/Projects') {
           transitionName.value = 'slide-fade2';
@@ -112,13 +112,14 @@ export default {
       activePage: "Home",
       oldPosition: "left",
       borderColor: "gray",
-      mainBGColor: "aquamarine",
+      mainBGColor: "white",
       exiting: true,
       whereTo: "Home",
       dest: "",
     };
   },
   created() {
+
     window.addEventListener("transitionend", () => {
       console.log(this.whereTo);
       if (this.whereTo == "CV") {
@@ -167,9 +168,9 @@ export default {
       if (dest == 'CV' && this.activePage == 'Home') {
         this.$router.replace({ path: '/CV' })
       } else if (dest == 'CV' && this.activePage == 'Projects') {
-        this.$router.replace({ path: '/Profile/CV' })
+        this.$router.replace({ path: '/CV' })
       } else if (dest == 'Projects' && this.activePage == 'CV') {
-        this.$router.replace({ path: '/Profile/Projects' })
+        this.$router.replace({ path: '/Projects' })
       } else if (dest == 'Projects' && this.activePage == 'Home') {
         this.$router.replace({ path: '/Projects' })
       }
@@ -222,7 +223,7 @@ export default {
 }
 
 .slide-fade-enter-from {
-  transform: translateX(1750px);
+  transform: translateX(-100%);
   opacity: 1;
 }
 
